@@ -1,0 +1,6 @@
+build/
+workloads/
+.vscode
+submission.tar.gz
+*.data
+.clang-format
