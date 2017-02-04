@@ -1,6 +1,6 @@
 # Unofficial C++ Starter Pack for the ACM Sigmod Programming Contest 2017
 
-This repository contains basic infrastructure to start a C/C++ based implementation for the 2017 ACM Sigmod Programing Contest [URL].
+This repository contains basic infrastructure to start a C/C++ based implementation for the [2017 ACM Sigmod Programing Contest](http://sigmod17contest.athenarc.gr/index.shtml).
 I am not affiliated with the organizers thus I can't make any guarantees about correctness.
 
 Additionaly to porting the python reference implementation the repository also contains tools to efficently benchmark locally.
