@@ -4,6 +4,7 @@
 #include <random>
 #include <set>
 #include <sstream>
+#include <unordered_set>
 
 using Rng = std::mt19937_64;
 
@@ -60,9 +61,10 @@ struct Generator {
    {
    }
 
-   std::set<std::string> generatePrologue(const std::vector<std::string>& ngrams, const uint32_t ngramCount)
+   std::unordered_set<std::string> generatePrologue(const std::vector<std::string>& ngrams, const uint32_t ngramCount)
    {
-      std::set<std::string> result;
+      std::unordered_set<std::string> result;
+      result.reserve(ngramCount);
       for (uint32_t i = 0; i < ngramCount;) {
          auto ngram = ngrams[searchNgramDist(rng)];
          if (result.find(ngram) == result.end()) {
@@ -193,14 +195,17 @@ int main(int argc, char** argv)
 
    Generator gen(seed, searchNgrams.size(), docNgrams.second, averageNgramsPerQuery, matchProbability);
 
-   auto activeNgrams = gen.generatePrologue(searchNgrams, initialNgramCount);
+   auto initialNgrams = gen.generatePrologue(searchNgrams, initialNgramCount);
 
+   std::set<std::string> activeNgrams;
    Ngramer oracle;
-   for (auto& ngram : activeNgrams) {
+   for (auto& ngram : initialNgrams) {
       std::string ngramCopy = ngram;
       oracle.add(std::move(ngramCopy));
+      activeNgrams.insert(ngram);
       std::cout << ngram << std::endl;
    }
+   initialNgrams.clear();
 
    std::cout << "S" << std::endl;
 
