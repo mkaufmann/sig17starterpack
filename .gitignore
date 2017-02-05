@@ -1,6 +1,8 @@
 build/
 workloads/
+test-harness/
 .vscode
 submission.tar.gz
 *.data
+*.data.old
 .clang-format
