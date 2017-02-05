@@ -22,6 +22,14 @@ target_include_directories(runner PUBLIC
     PRIVATE src)
 target_link_libraries(runner baseline)
 
+add_executable(statrunner
+    src/statrunner.cpp)
+target_include_directories(statrunner PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+    PRIVATE src)
+target_link_libraries(statrunner baseline)
+
 enable_testing()
 find_package(GTest REQUIRED)
 add_executable(reference_tester src/tester.cpp)

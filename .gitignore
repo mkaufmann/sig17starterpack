@@ -6,3 +6,4 @@ submission.tar.gz
 *.data
 *.data.old
 .clang-format
+*ngrams.txt
