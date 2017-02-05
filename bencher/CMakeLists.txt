@@ -13,6 +13,14 @@ target_include_directories(generator PUBLIC
     PRIVATE src)
 target_link_libraries(generator baseline)
 
+add_executable(next_generator
+    src/nextgenerator.cpp)
+target_include_directories(next_generator PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+    PRIVATE src)
+target_link_libraries(next_generator baseline)
+
 add_executable(bencher
     src/popenRWE.cpp
     src/bencher.cpp)
