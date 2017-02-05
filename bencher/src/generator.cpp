@@ -181,8 +181,7 @@ int main(int argc, char** argv)
             auto query = gen.generateQuery(ngrams, activeNgrams);
             {
                auto result = oracle.query(query);
-               auto ordered = orderResult(std::move(result));
-               batchResults.emplace_back(stringify(ordered));
+               batchResults.emplace_back(stringify(result));
             }
             std::cout << "Q" << query << std::endl;
             break;

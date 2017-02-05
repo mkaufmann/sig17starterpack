@@ -20,8 +20,7 @@ int main(int, char**)
       switch (line[0]) {
          case 'Q': {
             auto result = ngramer.query(line.substr(2));
-            auto ordered = orderResult(std::move(result));
-            std::cout << stringify(ordered) << std::endl;
+            std::cout << stringify(result) << std::endl;
             break;
          }
          case 'A': {

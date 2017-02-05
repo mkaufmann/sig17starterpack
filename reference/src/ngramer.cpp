@@ -3,7 +3,10 @@
 #include <iterator>
 #include <sstream>
 
-std::vector<std::pair<std::string, size_t>> Ngramer::query(const std::string& document)
+
+std::vector<std::string> orderResult(std::vector<std::pair<std::string, size_t>>&& ngrams);
+
+std::vector<std::string> Ngramer::query(const std::string& document)
 {
    std::vector<std::pair<std::string, size_t>> results;
    auto text = " " + document + " ";
@@ -15,7 +18,7 @@ std::vector<std::pair<std::string, size_t>> Ngramer::query(const std::string& do
          results.push_back({ngram, pos});
       }
    }
-   return results;
+   return orderResult(std::move(results));
 }
 
 void Ngramer::add(std::string&& ngram) { ngrams.emplace_back(ngram); }

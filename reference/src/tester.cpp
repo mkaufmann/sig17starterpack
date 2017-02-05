@@ -24,11 +24,11 @@ TEST(Ngramer, SimpleTest)
                            "to enjoy all the benefits that the health field has "
                            "to offer");
    std::vector<std::string> q1Result = {"one of the"};
-   ASSERT_EQ(orderResult(std::move(q1)), q1Result);
+   ASSERT_EQ(q1, q1Result);
    std::vector<std::string> q2Result = {"health", "health director", "director", "conference", "public health"};
-   ASSERT_EQ(orderResult(std::move(q2)), q2Result);
+   ASSERT_EQ(q2, q2Result);
    std::vector<std::string> q3Result = {"public health", "health director", "director"};
-   ASSERT_EQ(orderResult(std::move(q3)), q3Result);
+   ASSERT_EQ(q3, q3Result);
 }
 
 TEST(Ngramer, Stringify)
