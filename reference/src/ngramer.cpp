@@ -41,7 +41,16 @@ std::vector<std::string> orderResult(std::vector<std::pair<std::string, size_t>>
 
 std::string stringify(const std::vector<std::string>& strings)
 {
-   std::ostringstream result;
-   std::copy(strings.begin(), strings.end(), std::ostream_iterator<std::string>(result, "|"));
-   return result.str();
+   std::ostringstream buffer;
+   bool first = true;
+   for (auto& string : strings) {
+      if (first) {
+         first = false;
+      }
+      else {
+         buffer << '|';
+      }
+      buffer << string;
+   }
+   return buffer.str();
 }

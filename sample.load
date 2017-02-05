@@ -55,8 +55,8 @@ D Quincy/M
 Q plumbing/M seniority/M span/MS oncogene/SM nacelle/SM intimidate/GNDS we'd Murrow/M wallah prattler/M shroud/GMDS
 Q Bunsen/M Moran/M diligent/Y bushwhack/DRSZG enlargeable jetport/MS Ithacan/M
 F
-R 39
-declarative|overburden/GSD|Quincy/M|
+R 38
+declarative|overburden/GSD|Quincy/M
 
 
 Q necrotic hungry/PRT comp/MDYGS Palmerston/M Jock/M duct's/K cytologist/SM befriend/SGD MIPS pares/S competitive/PY
@@ -76,21 +76,21 @@ Q randy/RTP Canopus/M stubbed misjudgment/SM forsworn prefrontal opened/U Lois/M
 Q error/SM seducer/M archaeology/M sim/SM carpenter/MDGS flan/MS barred/UEC ruffian/MYS peckish floridness/M
 Q reverence/DSMG Roxy/M swoosh/MDSG borax/M spleen/SM patchouli censoriousness/M eyesore/MS warpaths mustang/MS investigate/GNVDSX
 F
-R 337
+R 325
 
-declarative|
-unsociable|
-overburden/GSD|metaphoric|
-censoriousness/M|rosary/SM|error/SM|Lois/M|
+declarative
+unsociable
+overburden/GSD|metaphoric
+censoriousness/M|rosary/SM|error/SM|Lois/M
 
-Lois/M|habitation/MS|
-sampan/SM|censoriousness/M|inamorata/SM|
-habitation/MS|swoosh/MDSG|rosary/SM|portliness/M|
-province/MS|
-censoriousness/M|error/SM|
-Canopus/M|Lois/M|swoosh/MDSG|
-error/SM|
-Roxy/M|swoosh/MDSG|censoriousness/M|warpaths|
+Lois/M|habitation/MS
+sampan/SM|censoriousness/M|inamorata/SM
+habitation/MS|swoosh/MDSG|rosary/SM|portliness/M
+province/MS
+censoriousness/M|error/SM
+Canopus/M|Lois/M|swoosh/MDSG
+error/SM
+Roxy/M|swoosh/MDSG|censoriousness/M|warpaths
 Q pancreas/MS Walker/M debarkation/M hamster/MS Romulus/M Malabar/M Finnegan/M Rachmaninoff/M reducer/M spadix/M symbolic italics/M
 A Bradley/M
 Q Muzak/M orienteering Finnegan/M color/AEGDS swoosh/MDSG carving/M bronco/SM Bradley/M waters/M humorousness/M
@@ -118,23 +118,23 @@ Q Kitchener/M ringleader/MS flawlessness/M Kellogg/M emblazon/GDLS Huber/M newsp
 D swoosh/MDSG
 Q inferno/MS impartiality/M Bridgett/M flunk/SMDG negritude/M antacid/SM problematic miracle/MS midweek/MS BASIC/SM interrogator/SM manager/M
 F
-R 387
-Finnegan/M|
-Finnegan/M|swoosh/MDSG|Bradley/M|
-overburden/GSD|unsociable|heritable/I|
-Bradley/M|
-swoosh/MDSG|censoriousness/M|error/SM|
-compote/SM|Roxy/M|error/SM|
-modeling/M|Roxy/M|swoosh/MDSG|province/MS|
-Finnegan/M|overburden/GSD|
-warpaths|Huber/M|
-swoosh/MDSG|
-overburden/GSD|
-censoriousness/M|
-pustule/SM|phooey|
-compote/SM|Stacy/M|
-overburden/GSD|jigging/A|
-ringleader/MS|Huber/M|
+R 371
+Finnegan/M
+Finnegan/M|swoosh/MDSG|Bradley/M
+overburden/GSD|unsociable|heritable/I
+Bradley/M
+swoosh/MDSG|censoriousness/M|error/SM
+compote/SM|Roxy/M|error/SM
+modeling/M|Roxy/M|swoosh/MDSG|province/MS
+Finnegan/M|overburden/GSD
+warpaths|Huber/M
+swoosh/MDSG
+overburden/GSD
+censoriousness/M
+pustule/SM|phooey
+compote/SM|Stacy/M
+overburden/GSD|jigging/A
+ringleader/MS|Huber/M
 
 F
 R 0
@@ -169,48 +169,48 @@ Q Cotonou/M psi/SM beefy/RPT Lois/M pastern/MS Antipodes
 D Willemstad/M
 Q ascend/AGDS malign/DSG rear/GMDS chock/GMDS cowboy/SM Wittgenstein/M dictation/M limitlessness/M ingredient/MS educated/U Beninese/M filly/SM
 F
-R 375
-compote/SM|phooey|
-habitation/MS|versify/ZGNDRS|
-versify/ZGNDRS|compote/SM|overburden/GSD|turkey/SM|
-inamorata/SM|dragged|
-dragged|
-compote/SM|pustule/SM|
-dragged|portliness/M|
+R 360
+compote/SM|phooey
+habitation/MS|versify/ZGNDRS
+versify/ZGNDRS|compote/SM|overburden/GSD|turkey/SM
+inamorata/SM|dragged
+dragged
+compote/SM|pustule/SM
+dragged|portliness/M
 
-modeling/M|spathe/SM|
-executor/MS|
-Willemstad/M|dragged|kinkiness/M|compote/SM|
-heritable/I|Bradley/M|compote/SM|Fredrick/M|
-dragged|compote/SM|
-modeling/M|
-inflame/DSG|Stacy/M|
-Cotonou/M|Lois/M|
+modeling/M|spathe/SM
+executor/MS
+Willemstad/M|dragged|kinkiness/M|compote/SM
+heritable/I|Bradley/M|compote/SM|Fredrick/M
+dragged|compote/SM
+modeling/M
+inflame/DSG|Stacy/M
+Cotonou/M|Lois/M
 
 A developer/SM
 Q raspberry/SM Tigris/M Bradley/M arability/M Ferraro/M winner/SM seamstress/MS compote/SM methadone/M lunchtime/MS
 F
-R 22
-Bradley/M|compote/SM|
+R 21
+Bradley/M|compote/SM
 Q digging/S irreverence/M secretive/PY alchemy/M peculate/GNDS overbuild/SG Massenet/M whist/M Stacy/M drabness/M compote/SM tourniquet/MS compote/SM
 Q monoliths Dangerfield/M compote/SM nonattendance/M impatiens/M headscarves compote/SM applauder/M FPO Dawn/M Gina/M
 Q loyalty/EM Holiness compote/SM developer/SM snowstorm/SM axiom/SM monastery/SM judicious/IYP CZ gulf/MS sheikh/M erotic/S directorate/SM
 A fluke/SM
 F
-R 57
-Stacy/M|compote/SM|
-compote/SM|
-compote/SM|developer/SM|
+R 54
+Stacy/M|compote/SM
+compote/SM
+compote/SM|developer/SM
 Q Raymond/M schematize/GDS explicit/PY mention/GSMD priority/SM Laramie/M Fredrick/M vanity/SM Hindustan/M
 Q gorge/EDSG opus/MS Sunnite/MS Tuamotu/M squat/SMP spathe/SM hoarse/YTRP freeway/MS north/ZMR pacifistic litigious/P
 F
-R 23
-Fredrick/M|
-spathe/SM|
+R 21
+Fredrick/M
+spathe/SM
 Q inflame/DSG lusterless trichina/M waiter/M excise/XDSMGN Belgrade/M Capitoline/M iridescent/Y braininess/M
 F
-R 13
-inflame/DSG|
+R 12
+inflame/DSG
 Q interracial seeker/M Dyson/M spotlight/GSMD xenon/M honor/ESGMDB ringleader/MS Erie/M patriarchal lints
 Q modeling/M lysosomes direful Bradley/M Yerkes/M mysteriousness/M condemnation/MS swagging transshipped craving/M pilferage/M
 A note's

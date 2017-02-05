@@ -30,3 +30,14 @@ TEST(Ngramer, SimpleTest)
    std::vector<std::string> q3Result = {"public health", "health director", "director"};
    ASSERT_EQ(orderResult(std::move(q3)), q3Result);
 }
+
+TEST(Ngramer, Stringify)
+{
+   std::vector<std::string> testA = {"a", "b", "c"};
+   std::vector<std::string> testB = {};
+   std::vector<std::string> testC = {"a"};
+
+   ASSERT_EQ(stringify(testA), "a|b|c");
+   ASSERT_EQ(stringify(testB), "");
+   ASSERT_EQ(stringify(testC), "a");
+}
