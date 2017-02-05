@@ -1,5 +1,6 @@
 #include "baseline/ngramer.hpp"
 #include <iostream>
+#include <sstream>
 
 int main(int, char**)
 {
@@ -11,16 +12,19 @@ int main(int, char**)
    std::cout << "R" << std::endl;
 
    // Parse input
+   std::stringstream buffer;
    for (std::string line; std::getline(std::cin, line);) {
       if (line == "F") {
-         std::cout << std::flush;
+         std::cout << buffer.str() << std::flush;
+         buffer.str(std::string());
+         buffer.clear();
          continue;
       }
 
       switch (line[0]) {
          case 'Q': {
             auto result = ngramer.query(line.substr(2));
-            std::cout << stringify(result) << std::endl;
+            buffer << stringify(result) << std::endl;
             break;
          }
          case 'A': {

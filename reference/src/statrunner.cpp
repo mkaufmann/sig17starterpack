@@ -17,17 +17,20 @@ int main(int, char**)
 
    // Parse input
    uint32_t countFlush = 0;
+   std::stringstream buffer;
    for (std::string line; std::getline(std::cin, line);) {
       if (line == "F") {
          countFlush++;
-         std::cout << std::flush;
+         std::cout << buffer.str() << std::flush;
+         buffer.str(std::string());
+         buffer.clear();
          continue;
       }
 
       switch (line[0]) {
          case 'Q': {
             auto result = ngramer.query(line.substr(2));
-            std::cout << stringify(result) << std::endl;
+            buffer << stringify(result) << std::endl;
             break;
          }
          case 'A': {
@@ -47,11 +50,11 @@ int main(int, char**)
 
    std::cerr << "Initial: " << initialAdds << std::endl;
    std::cerr << "NumQueries: " << ngramer.countDocs << std::endl;
-   std::cerr << "WordsPerDoc: " << ngramer.wordInDocs / ngramer.countDocs << std::endl;
-   std::cerr << "MatchProbability: " << ngramer.matchesDocs / (double)ngramer.wordInDocs << std::endl;
    std::cerr << "NumAdditions: " << ngramer.countAdd << std::endl;
    std::cerr << "NumDeletes: " << ngramer.countRemove << std::endl;
    std::cerr << "NumFlushes: " << countFlush << std::endl;
+   std::cerr << "WordsPerDoc: " << ngramer.wordInDocs / ngramer.countDocs << std::endl;
+   std::cerr << "MatchProbability: " << ngramer.matchesDocs / (double)ngramer.wordInDocs << std::endl;
 
    std::ofstream searchNgrams("search_ngrams.txt");
    std::ofstream docNgrams("doc_ngrams.txt");
