@@ -45,6 +45,33 @@ The program supports the following parameters:
 Note: Using a dictionary as source for the ngrams will probably not lead to a representative workloads as there will be at most one word per ngram.
 Additionally compared to the official workload the match probability will probably be too uniform.
 
+# Stat Runner & Next Generator
+
+The normal generator generates can create very artificial workloads.
+The official published workloads use real text which does not have a uniform distribution for the ngrams used in the document.
+To extract the information about the ngrams used inside the documents and the ngrams that are search for the "statrunner" program was added.
+Running the test-harness with the stat runner give thes following output:
+
+`test-harness/harness test-harness/small.init test-harness/small.work test-harness/small.result build/Release/reference/statrunner`
+
+    Initial: 2000
+    NumQueries: 500
+    NumAdditions: 2000
+    NumDeletes: 400
+    NumFlushes: 3
+    WordsPerDoc: 5673
+    MatchProbability: 0.0304828
+
+Additionally it will also create the files "search_ngrams.txt" and "doc_ngrams.txt".
+These can be used with the "next_generator" to create more natural workloads.
+
+Example:
+
+`build/Release/bencher/next_generator search_ngrams.txt doc_ngrams.txt 1500 500 1100 1000 3 10000 5670 0.0340 1988 > workloads/10000_real.load`
+
+If you use the search_ngrams file as extracted from the official small workload beware that it only contains a limited number of ngrams.
+To create a workload containing many additions or that runs for a long time you will have to add more to that file.
+
 ## Packaging
 The `package.sh` file is configured to automatically package the whole project excluding the build folder, workload files and hidden files.
 
