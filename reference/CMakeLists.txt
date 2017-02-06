@@ -31,7 +31,9 @@ target_include_directories(statrunner PUBLIC
 target_link_libraries(statrunner baseline)
 
 enable_testing()
-find_package(GTest REQUIRED)
-add_executable(reference_tester src/tester.cpp)
-target_link_libraries(reference_tester baseline GTest::GTest GTest::Main)
-GTEST_ADD_TESTS(reference_tester "" AUTO)
+find_package(GTest)
+if(GTEST_FOUND)
+   add_executable(reference_tester src/tester.cpp)
+   target_link_libraries(reference_tester baseline GTest::GTest GTest::Main)
+   GTEST_ADD_TESTS(reference_tester "" AUTO)
+endif()
