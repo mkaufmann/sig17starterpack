@@ -18,6 +18,9 @@ std::vector<std::string> readNgrams(const std::string& fileName)
 
    std::vector<std::string> ngrams;
    for (std::string line; std::getline(file, line);) {
+      if (line.size() == 0) {
+         continue;
+      }
       ngrams.emplace_back(std::move(line));
    }
    return ngrams;
@@ -30,7 +33,7 @@ struct Generator {
    std::bernoulli_distribution ngramMatch;
 
    Generator(uint64_t seed, size_t ngramCount, size_t avgNgramsPerDoc, double matchProb)
-      : rng(seed), ngramDist(0, ngramCount), docNgrams(avgNgramsPerDoc, avgNgramsPerDoc / 4), ngramMatch(matchProb)
+      : rng(seed), ngramDist(0, ngramCount - 1), docNgrams(avgNgramsPerDoc, avgNgramsPerDoc / 4), ngramMatch(matchProb)
    {
    }
 

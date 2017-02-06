@@ -1,4 +1,5 @@
 #include "baseline/ngramer.hpp"
+#include <cassert>
 #include <fstream>
 #include <iostream>
 #include <random>
@@ -18,6 +19,9 @@ std::vector<std::string> readNgrams(const std::string& fileName)
 
    std::vector<std::string> ngrams;
    for (std::string line; std::getline(file, line);) {
+      if (line.size() == 0) {
+         continue;
+      }
       ngrams.emplace_back(std::move(line));
    }
    return ngrams;
@@ -34,6 +38,9 @@ std::pair<std::vector<std::string>, std::vector<uint32_t>> readWeightedNgrams(co
    std::vector<std::string> docNgrams;
    std::vector<uint32_t> docNgramWeights;
    for (std::string line; std::getline(file, line);) {
+      if (line.size() == 0) {
+         continue;
+      }
       auto seperatorPos = line.find("|");
       if (seperatorPos == std::string::npos) {
          std::cerr << "Invalid doc ngram line: " << line << std::endl;
@@ -56,7 +63,7 @@ struct Generator {
    std::bernoulli_distribution ngramMatch;
 
    Generator(uint64_t seed, size_t searchNgramCount, std::vector<uint32_t>& docNgramWeights, size_t avgNgramsPerDoc, double matchProb)
-      : rng(seed), searchNgramDist(0, searchNgramCount), docNgramsDist(docNgramWeights.begin(), docNgramWeights.end()),
+      : rng(seed), searchNgramDist(0, searchNgramCount - 1), docNgramsDist(docNgramWeights.begin(), docNgramWeights.end()),
         docNgramsCount(avgNgramsPerDoc, avgNgramsPerDoc / 4), ngramMatch(matchProb)
    {
    }
@@ -66,7 +73,9 @@ struct Generator {
       std::unordered_set<std::string> result;
       result.reserve(ngramCount);
       for (uint32_t i = 0; i < ngramCount;) {
-         auto ngram = ngrams[searchNgramDist(rng)];
+         auto ix = searchNgramDist(rng);
+         assert(ix < ngrams.size());
+         auto ngram = ngrams[ix];
          if (result.find(ngram) == result.end()) {
             result.insert(ngram);
             i++;
@@ -97,12 +106,28 @@ struct Generator {
          numNgrams = docNgramsCount(rng);
       }
 
+
+      std::unordered_set<std::string> matched;
       std::stringstream query;
       for (uint32_t i = 0; i < numNgrams; i++) {
          bool matches = ngramMatch(rng);
          query << " ";
          if (matches) {
-            query << getRandomActive(docNgrams, active, docNgramsDist);
+            while (true) {
+               auto ngram = getRandomActive(docNgrams, active, docNgramsDist);
+               query << ngram;
+               if (matched.find(ngram) == matched.end()) {
+                  matched.insert(ngram);
+                  break;
+               }
+               else {
+                  if (matched.size() == active.size()) {
+                     std::cerr << "Not enough ngrams!" << std::endl;
+                     throw;
+                  }
+                  query << " ";
+               }
+            }
          }
          else {
             query << getRandomPassive(docNgrams, active, docNgramsDist);
@@ -218,6 +243,9 @@ int main(int argc, char** argv)
             auto query = gen.generateQuery(docNgrams.first, activeNgrams);
             {
                auto result = oracle.query(query);
+               if (result[0].size() == 0) {
+                  throw;
+               }
                batchResults.emplace_back(stringify(result));
             }
             std::cout << "Q" << query << std::endl;
