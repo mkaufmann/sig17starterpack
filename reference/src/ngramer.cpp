@@ -46,14 +46,20 @@ std::string stringify(const std::vector<std::string>& strings)
 {
    std::ostringstream buffer;
    bool first = true;
-   for (auto& string : strings) {
-      if (first) {
-         first = false;
+   if(strings.size()>0) {
+      for (auto& string : strings) {
+         if (first) {
+            first = false;
+         }
+         else {
+            buffer << '|';
+         }
+         buffer << string;
       }
-      else {
-         buffer << '|';
-      }
-      buffer << string;
+   } else {
+      buffer<<"-1";
    }
+
+
    return buffer.str();
 }
